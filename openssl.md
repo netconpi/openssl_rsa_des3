@@ -33,12 +33,13 @@ COMMENT: Для безопасности ключа его следует защ
 COMMENT CMD: `openssl genpkey -algorithm RSA -out rootCA.key -aes-128-cbc -pass pass:hello`
 
 COMMENT: `Если для генерируемого ключа не указано количество бит, то по умолчанию используется 2048, вы можете указать другое количество бит с помощью команды вида (будет создан 4096-битный ключ)`
+
 COMMENT CMD: `openssl genpkey -algorithm RSA -out rootCA.key -pkeyopt rsa_keygen_bits:4096`
 
 3. С помощью команды openssl rsa и соответствующих параметров вывести информацию о сгенерированном секретном ключе и проанализировать его структуру.
 
 CMD: `openssl rsa -text -in <file>.key`
-Output: `
+Output: ```
 Private-Key: (2048 bit, 2 primes)
 modulus:
     00:dc:61:54:91:7e:d8:ea:13:84:aa:8d:18:70:68:
@@ -158,7 +159,7 @@ Okorub84gZjqiDkyB+dHX2vW57vO/ri1kpFTEsw0w7e6MxQvARtax4qHxSDBccjF
 rfFEYSOsYcbCIKqJ1T7rSgKz29W84z1EOke5/wTm607zSSNI5Kt92mrFZRiMljFw
 Z83CftTbVcjQlUsiT7XaeuY=
 -----END PRIVATE KEY-----
-`
+```
 
 4. С помощью команды openssl rsa и соответствующих параметров извлечь открытый ключ и сохранить его в каталоге с именем CA
 
@@ -170,7 +171,7 @@ CMD: `openssl rsa -text -in <file_public>.key -pubin`
 
 COMMENT: -pubin делает так, что вместо приватного ключа читается открытый ключ
 
-OUTPUT: `
+OUTPUT: ```
 Public-Key: (2048 bit)
 Modulus:
     00:dc:61:54:91:7e:d8:ea:13:84:aa:8d:18:70:68:
@@ -202,7 +203,7 @@ ma00CUDtQcnfNADynxWUEExlrptDWQAJSty74PU9E3J2Pk60xIv1PQAFvDdWYR+t
 qTp+vRjHlAXqM8Zi5GXwqmfbCdX2QIELnlZTZzVjCyGcViWo4ge0KEonAqSeam8l
 vwIDAQAB
 -----END PUBLIC KEY-----
-`
+```
 
 6. С помощью команды openssl rsa и соответствующих параметров зашифровать секретный ключ с помощью алгоритма 3DES.
 
