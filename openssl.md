@@ -39,7 +39,8 @@ COMMENT CMD: `openssl genpkey -algorithm RSA -out rootCA.key -pkeyopt rsa_keygen
 3. С помощью команды openssl rsa и соответствующих параметров вывести информацию о сгенерированном секретном ключе и проанализировать его структуру.
 
 CMD: `openssl rsa -text -in <file>.key`
-Output: ```
+Output: 
+```
 Private-Key: (2048 bit, 2 primes)
 modulus:
     00:dc:61:54:91:7e:d8:ea:13:84:aa:8d:18:70:68:
@@ -171,7 +172,8 @@ CMD: `openssl rsa -text -in <file_public>.key -pubin`
 
 COMMENT: -pubin делает так, что вместо приватного ключа читается открытый ключ
 
-OUTPUT: ```
+OUTPUT: 
+```
 Public-Key: (2048 bit)
 Modulus:
     00:dc:61:54:91:7e:d8:ea:13:84:aa:8d:18:70:68:
